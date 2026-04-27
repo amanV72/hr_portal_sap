@@ -2,7 +2,7 @@
   "name": "hrportal_sap",
   "version": "1.0.0",
   "dependencies": {
-    "@cap-js/hana": "^2",
+    "@cap-js/hana": "^2.7.1",
     "@sap/cds": "^9"
   },
   "devDependencies": {
