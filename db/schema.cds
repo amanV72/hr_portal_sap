@@ -8,16 +8,16 @@ entity Roles: cuid {
 }
 entity Departments:cuid {
     name: String(10);
-    key department_head: Association to Users;
+     department_head: Association to Users;
 }
 
 entity Users: cuid,managed {
     email: String(10);
-    password_hash: String(8);
+    password_hash: String(255);
     first_name: String(10);
     last_name: String(10);
-    key role_id: Association to Roles;
-    key department_id: Association to Departments;
+    role_id: Association to Roles;
+    department_id: Association to Departments;
     hire_date: Date;
     phone: String(15); 
     is_active: Boolean;
