@@ -1,0 +1,146 @@
+{
+  "_version": "1.84.0",
+  "sap.app": {
+    "id": "com.hr.hruiapp",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.23.0",
+      "toolsId": "b52e28db-555b-4355-b592-7cd771a0770f"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/odata/v4/user/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "odataVersion": "4.01"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": false,
+    "dependencies": {
+      "minUI5Version": "1.147.1",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "com.hr.hruiapp.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "controlAggregation": "pages",
+        "controlId": "contentNav",
+        "transition": "slide",
+        "type": "View",
+        "viewType": "XML",
+        "path": "com.hr.hruiapp.view",
+        "async": true,
+        "viewPath": "com.hr.hruiapp.view"
+      },
+      "routes": [
+        
+        {
+      "name": "dashboard",
+      "pattern": "",
+      "target": "dashboard"
+    },
+    {
+      "name": "analytics",
+      "pattern": "analytics",
+      "target": "analytics"
+    },
+    {
+      "name": "employees",
+      "pattern": "employees",
+      "target": "employees"
+    },
+    {
+      "name": "attendance",
+      "pattern": "attendance",
+      "target": "attendance"
+    }
+      ],
+      "targets": {
+        "dashboard": {
+          "id": "Dashboard",
+          "name": "Dashboard"
+        },
+        "analytics": {
+          "id": "Analytics",
+          "name": "Analytics"
+          
+        },
+        "employees": {
+          "id": "Employee",
+          "name": "Employee"
+          
+        },
+        "attendance": {
+          "id": "Attendance",
+          "name": "Attendance"
+          
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "com.hr.hruiapp.view.App",
+      "type": "XML",
+      "id": "App",
+      "async": true
+    }
+  }
+}

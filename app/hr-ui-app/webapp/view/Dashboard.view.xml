@@ -1,0 +1,311 @@
+<mvc:View
+    controllerName="com.hr.hruiapp.controller.Dashboard"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:card="sap.f.cards"
+    xmlns:l="sap.ui.layout"
+    xmlns:grid="sap.ui.layout.cssgrid"
+    xmlns:tnt="sap.tnt"
+    displayBlock="true">
+
+    
+                        <ScrollContainer  
+                          vertical="true" 
+                          horizontal="false"
+                          height="90%"
+                          width="94%"
+                          class="hrWelcomeCard sapUiSmallMarginTop sapUiTinyMarginBeginEnd">
+
+                            <!-- Top Bar -->
+                            <Toolbar>
+                                <Title text="Welcome back! Here's your HR overview." level="H3" />
+                            </Toolbar>
+
+                            <!-- ======================== -->
+                            <!-- KPI TILES               -->
+                            <!-- ======================== -->
+                            <grid:CSSGrid
+                                gridTemplateColumns="repeat(4, 1fr)"
+                                gridGap="1rem"
+                                class="sapUiSmallMarginTopBottom">
+
+                                <f:Card >
+                                    <f:header>
+                                        <card:Header title="Pending Leaves"   subtitle="+3 from yesterday" iconSrc="sap-icon://calendar" />
+                                    </f:header>
+                                    <f:content>
+                                        <VBox class="sapUiSmallMargin">
+                                            <ObjectNumber number="12"  emphasized="true" state="Warning" />
+                                        </VBox>
+                                    </f:content>
+                                </f:Card>
+
+                                <f:Card>
+                                    <f:header>
+                                        <card:Header title="Total Headcount"  subtitle="+5 this month"    iconSrc="sap-icon://group" />
+                                    </f:header>
+                                    <f:content>
+                                        <VBox class="sapUiSmallMargin">
+                                            <ObjectNumber number="247" emphasized="true" state="Success" />
+                                        </VBox>
+                                    </f:content>
+                                </f:Card>
+
+                                <f:Card>
+                                    <f:header>
+                                        <card:Header title="Attendance Alerts" subtitle="-2 from yesterday" iconSrc="sap-icon://alert" />
+                                    </f:header>
+                                    <f:content>
+                                        <VBox class="sapUiSmallMargin">
+                                            <ObjectNumber number="5"   emphasized="true" state="Error" />
+                                        </VBox>
+                                    </f:content>
+                                </f:Card>
+
+                                <f:Card>
+                                    <f:header>
+                                        <card:Header title="Completed Reviews" subtitle="+12% this quarter" iconSrc="sap-icon://accept" />
+                                    </f:header>
+                                    <f:content>
+                                        <VBox class="sapUiSmallMargin">
+                                            <ObjectNumber number="89%" emphasized="true" state="Success" />
+                                        </VBox>
+                                    </f:content>
+                                </f:Card>
+
+                            </grid:CSSGrid>
+
+                            <!-- ======================== -->
+                            <!-- BOTTOM PANELS           -->
+                            <!-- ======================== -->
+                            <grid:CSSGrid gridTemplateColumns="2fr 1fr" gridGap="1rem"  class="hrBottomGrid">
+
+                                <!-- Recent Activity -->
+                                
+                                       
+                                    <VBox >
+                                        <Title text="Recent Activity" titleStyle="H6"></Title>
+
+                                        <List showSeparators="Inner" class="sapUiTinyMargin">
+
+                                            <CustomListItem>
+                                                <HBox alignItems="Center" justifyContent="SpaceBetween"
+                                                      class="sapUiSmallMarginBeginEnd sapUiTinyMarginTopBottom">
+                                                    <HBox alignItems="Center">
+                                                        <Avatar displaySize="XS" class="sapUiSmallMarginEnd" />
+                                                        <VBox>
+                                                            <Text text="Emma Wilson completed onboarding" />
+                                                            <Label text="1h ago" />
+                                                        </VBox>
+                                                    </HBox>
+                                                    <ObjectStatus text="success" state="Success" inverted="true" />
+                                                </HBox>
+                                            </CustomListItem>
+                                            <CustomListItem>
+                                                <HBox alignItems="Center" justifyContent="SpaceBetween"
+                                                      class="sapUiSmallMarginBeginEnd sapUiTinyMarginTopBottom">
+                                                    <HBox alignItems="Center">
+                                                        <Avatar displaySize="XS" class="sapUiSmallMarginEnd" />
+                                                        <VBox>
+                                                            <Text text="Emma Wilson completed onboarding" />
+                                                            <Label text="1h ago" />
+                                                        </VBox>
+                                                    </HBox>
+                                                    <ObjectStatus text="success" state="Success" inverted="true" />
+                                                </HBox>
+                                            </CustomListItem>
+                                             <CustomListItem>
+                                                <HBox alignItems="Center" justifyContent="SpaceBetween"
+                                                      class="sapUiSmallMarginBeginEnd sapUiTinyMarginTopBottom">
+                                                    <HBox alignItems="Center">
+                                                        <Avatar displaySize="XS" class="sapUiSmallMarginEnd" />
+                                                        <VBox>
+                                                            <Text text="Emma Wilson completed onboarding" />
+                                                            <Label text="1h ago" />
+                                                        </VBox>
+                                                    </HBox>
+                                                    <ObjectStatus text="success" state="Success" inverted="true" />
+                                                </HBox>
+                                            </CustomListItem>
+                                             <CustomListItem>
+                                                <HBox alignItems="Center" justifyContent="SpaceBetween"
+                                                      class="sapUiSmallMarginBeginEnd sapUiTinyMarginTopBottom">
+                                                    <HBox alignItems="Center">
+                                                        <Avatar displaySize="XS" class="sapUiSmallMarginEnd" />
+                                                        <VBox>
+                                                            <Text text="Emma Wilson completed onboarding" />
+                                                            <Label text="1h ago" />
+                                                        </VBox>
+                                                    </HBox>
+                                                    <ObjectStatus text="success" state="Success" inverted="true" />
+                                                </HBox>
+                                            </CustomListItem>
+                                             <CustomListItem>
+                                                <HBox alignItems="Center" justifyContent="SpaceBetween"
+                                                      class="sapUiSmallMarginBeginEnd sapUiTinyMarginTopBottom">
+                                                    <HBox alignItems="Center">
+                                                        <Avatar displaySize="XS" class="sapUiSmallMarginEnd" />
+                                                        <VBox>
+                                                            <Text text="Emma Wilson completed onboarding" />
+                                                            <Label text="1h ago" />
+                                                        </VBox>
+                                                    </HBox>
+                                                    <ObjectStatus text="success" state="Success" inverted="true" />
+                                                </HBox>
+                                            </CustomListItem>
+                                             <CustomListItem>
+                                                <HBox alignItems="Center" justifyContent="SpaceBetween"
+                                                      class="sapUiSmallMarginBeginEnd sapUiTinyMarginTopBottom">
+                                                    <HBox alignItems="Center">
+                                                        <Avatar displaySize="XS" class="sapUiSmallMarginEnd" />
+                                                        <VBox>
+                                                            <Text text="Emma Wilson completed onboarding" />
+                                                            <Label text="1h ago" />
+                                                        </VBox>
+                                                    </HBox>
+                                                    <ObjectStatus text="success" state="Success" inverted="true" />
+                                                </HBox>
+                                            </CustomListItem>
+                                             <CustomListItem>
+                                                <HBox alignItems="Center" justifyContent="SpaceBetween"
+                                                      class="sapUiSmallMarginBeginEnd sapUiTinyMarginTopBottom">
+                                                    <HBox alignItems="Center">
+                                                        <Avatar displaySize="XS" class="sapUiSmallMarginEnd" />
+                                                        <VBox>
+                                                            <Text text="Emma Wilson completed onboarding" />
+                                                            <Label text="1h ago" />
+                                                        </VBox>
+                                                    </HBox>
+                                                    <ObjectStatus text="success" state="Success" inverted="true" />
+                                                </HBox>
+                                            </CustomListItem>
+                                            <CustomListItem>
+                                                <HBox alignItems="Center" justifyContent="SpaceBetween"
+                                                      class="sapUiSmallMarginBeginEnd sapUiTinyMarginTopBottom">
+                                                    <HBox alignItems="Center">
+                                                        <Avatar displaySize="XS" class="sapUiSmallMarginEnd" />
+                                                        <VBox>
+                                                            <Text text="Emma Wilson completed onboarding" />
+                                                            <Label text="1h ago" />
+                                                        </VBox>
+                                                    </HBox>
+                                                    <ObjectStatus text="success" state="Success" inverted="true" />
+                                                </HBox>
+                                            </CustomListItem>
+                                            <CustomListItem>
+                                                <HBox alignItems="Center" justifyContent="SpaceBetween"
+                                                      class="sapUiSmallMarginBeginEnd sapUiTinyMarginTopBottom">
+                                                    <HBox alignItems="Center">
+                                                        <Avatar displaySize="XS" class="sapUiSmallMarginEnd" />
+                                                        <VBox>
+                                                            <Text text="Emma Wilson completed onboarding" />
+                                                            <Label text="1h ago" />
+                                                        </VBox>
+                                                    </HBox>
+                                                    <ObjectStatus text="success" state="Success" inverted="true" />
+                                                </HBox>
+                                            </CustomListItem>
+                                            <CustomListItem>
+                                                <HBox alignItems="Center" justifyContent="SpaceBetween"
+                                                      class="sapUiSmallMarginBeginEnd sapUiTinyMarginTopBottom">
+                                                    <HBox alignItems="Center">
+                                                        <Avatar displaySize="XS" class="sapUiSmallMarginEnd" />
+                                                        <VBox>
+                                                            <Text text="Emma Wilson completed onboarding" />
+                                                            <Label text="1h ago" />
+                                                        </VBox>
+                                                    </HBox>
+                                                    <ObjectStatus text="success" state="Success" inverted="true" />
+                                                </HBox>
+                                            </CustomListItem>
+                                        
+                                           
+
+                                           
+
+                                            <CustomListItem>
+                                                <HBox alignItems="Center" justifyContent="SpaceBetween"
+                                                      class="sapUiSmallMarginBeginEnd sapUiTinyMarginTopBottom">
+                                                    <HBox alignItems="Center">
+                                                        <Avatar displaySize="XS" class="sapUiSmallMarginEnd" />
+                                                        <VBox>
+                                                            <Text text="Emma Wilson completed onboarding" />
+                                                            <Label text="1h ago" />
+                                                        </VBox>
+                                                    </HBox>
+                                                    <ObjectStatus text="success" state="Success" inverted="true" />
+                                                </HBox>
+                                            </CustomListItem>
+
+                                        </List>
+                                    </VBox>
+                                   
+
+                                <!-- Pending Approvals -->
+                                <f:Card >
+                                    <f:header>
+                                        <card:Header title="Pending Approvals" statusText="4 pending" />
+                                    </f:header>
+                                    <f:content>
+                                        <List showSeparators="Inner">
+
+                                            <CustomListItem>
+                                                <VBox class="sapUiSmallMarginBeginEnd sapUiTinyMarginTopBottom">
+                                                    <HBox alignItems="Center" class="sapUiTinyMarginBottom">
+                                                        <Avatar displaySize="XS" class="sapUiSmallMarginEnd" />
+                                                        <VBox>
+                                                            <Text text="Sarah Jenkins" />
+                                                            <Label text="Sick Leave • 3 days" />
+                                                        </VBox>
+                                                    </HBox>
+                                                    <HBox>
+                                                        <Button text="Approve" type="Accept" class="sapUiTinyMarginEnd" press=".onApprove" />
+                                                        <Button text="Reject"  type="Reject"                             press=".onReject" />
+                                                    </HBox>
+                                                </VBox>
+                                            </CustomListItem>
+                                             <CustomListItem>
+                                                <VBox class="sapUiSmallMarginBeginEnd sapUiTinyMarginTopBottom">
+                                                    <HBox alignItems="Center" class="sapUiTinyMarginBottom">
+                                                        <Avatar displaySize="XS" class="sapUiSmallMarginEnd" />
+                                                        <VBox>
+                                                            <Text text="Sarah Jenkins" />
+                                                            <Label text="Sick Leave • 3 days" />
+                                                        </VBox>
+                                                    </HBox>
+                                                    <HBox>
+                                                        <Button text="Approve" type="Accept" class="sapUiTinyMarginEnd" press=".onApprove" />
+                                                        <Button text="Reject"  type="Reject"                             press=".onReject" />
+                                                    </HBox>
+                                                </VBox>
+                                            </CustomListItem>
+                                            
+
+                                            <CustomListItem>
+                                                <VBox class="sapUiSmallMarginBeginEnd sapUiTinyMarginTopBottom">
+                                                    <HBox alignItems="Center" class="sapUiTinyMarginBottom">
+                                                        <Avatar displaySize="XS" class="sapUiSmallMarginEnd" />
+                                                        <VBox>
+                                                            <Text text="David Kim" />
+                                                            <Label text="Annual Leave • 5 days" />
+                                                        </VBox>
+                                                    </HBox>
+                                                    <HBox>
+                                                        <Button text="Approve" type="Accept" class="sapUiTinyMarginEnd" press=".onApprove" />
+                                                        <Button text="Reject"  type="Reject"                             press=".onReject" />
+                                                    </HBox>
+                                                </VBox>
+                                            </CustomListItem>
+
+                                        </List>
+                                    </f:content>
+                                </f:Card>
+
+                            </grid:CSSGrid>
+                        
+                        </ScrollContainer>
+
+                 
+
+</mvc:View>

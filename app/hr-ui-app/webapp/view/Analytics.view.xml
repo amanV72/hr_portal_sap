@@ -1,0 +1,162 @@
+<mvc:View
+    controllerName="com.hr.hruiapp.controller.Analytics"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:card="sap.f.cards"
+    xmlns:grid="sap.ui.layout.cssgrid"
+    xmlns:viz="sap.viz.ui5.controls"
+    xmlns:vizData="sap.viz.ui5.data"
+    xmlns:vizFeeds="sap.viz.ui5.controls.common.feeds"
+    xmlns:core="sap.ui.core"
+    displayBlock="true">
+
+    <Page showHeader="false" enableScrolling="true">
+        <content>
+            <VBox class="sapUiSmallMarginTop hrWelcomeCard">
+
+                <!-- PAGE HEADER -->
+                <HBox justifyContent="SpaceBetween" alignItems="Center" class="sapUiSmallMarginBottom">
+                    <VBox>
+                        <Title text="HR Analytics" level="H3" />
+                        <Text text="Workforce insights for Q1 2025" class="sapUiTinyMarginTop" />
+                    </VBox>
+                    <HBox alignItems="Center">
+                        <Select id="periodFilter" change=".onPeriodChange" class="sapUiSmallMarginEnd">
+                            <items>
+                                <core:Item key="Q1_2025" text="Q1 2025" />
+                                <core:Item key="Q4_2024" text="Q4 2024" />
+                                <core:Item key="Q3_2024" text="Q3 2024" />
+                                <core:Item key="2024"    text="Full Year 2024" />
+                            </items>
+                        </Select>
+                        <Button icon="sap-icon://download" text="Export" press=".onExport" />
+                    </HBox>
+                </HBox>
+
+                <!-- KPI CARDS -->
+               
+
+                <!-- ROW 1: BAR + DONUT -->
+                <grid:CSSGrid gridTemplateColumns="1fr" gridGap="1rem" class="sapUiSmallMarginBottom">
+
+                    <f:Card>
+                        <f:header>
+                            <card:Header title="Headcount by Department" subtitle="Current active employees" />
+                        </f:header>
+                        <f:content>
+                            <viz:VizFrame id="headcountChart" vizType="bar" height="300px" width="100%" uiConfig="{applicationSet:'fiori'}">
+                                <viz:dataset>
+                                    <vizData:FlattenedDataset data="{/headcountData}">
+                                        <vizData:dimensions>
+                                            <vizData:DimensionDefinition name="Department" value="{department}" />
+                                        </vizData:dimensions>
+                                        <vizData:measures>
+                                            <vizData:MeasureDefinition name="Employees" value="{employees}" />
+                                        </vizData:measures>
+                                    </vizData:FlattenedDataset>
+                                </viz:dataset>
+                                <viz:feeds>
+                                    <vizFeeds:FeedItem uid="valueAxis"    type="Measure"   values="Employees" />
+                                    <vizFeeds:FeedItem uid="categoryAxis" type="Dimension" values="Department" />
+                                </viz:feeds>
+                            </viz:VizFrame>
+                        </f:content>
+                    </f:Card>
+
+                 
+
+                </grid:CSSGrid>
+
+                <!-- ROW 3: LINE + STACKED -->
+                <grid:CSSGrid gridTemplateColumns="2fr 1fr" gridGap="1rem" class="sapUiSmallMarginBottom">
+
+                   
+
+                    <f:Card>
+                        <f:header>
+                            <card:Header title="Leave Utilization" subtitle="By type — current quarter" />
+                        </f:header>
+                        <f:content>
+                            <viz:VizFrame id="leaveChart" vizType="stacked_bar" height="280px" width="100%" uiConfig="{applicationSet:'fiori'}">
+                                <viz:dataset>
+                                    <vizData:FlattenedDataset data="{/leaveData}">
+                                        <vizData:dimensions>
+                                            <vizData:DimensionDefinition name="Department" value="{department}" />
+                                        </vizData:dimensions>
+                                        <vizData:measures>
+                                            <vizData:MeasureDefinition name="Sick Leave"   value="{sickLeave}" />
+                                            <vizData:MeasureDefinition name="Annual Leave" value="{annualLeave}" />
+                                            <vizData:MeasureDefinition name="Other"        value="{other}" />
+                                        </vizData:measures>
+                                    </vizData:FlattenedDataset>
+                                </viz:dataset>
+                                <viz:feeds>
+                                    <vizFeeds:FeedItem uid="valueAxis"    type="Measure"   values="Sick Leave,Annual Leave,Other" />
+                                    <vizFeeds:FeedItem uid="categoryAxis" type="Dimension" values="Department" />
+                                </viz:feeds>
+                            </viz:VizFrame>
+                        </f:content>
+                    </f:Card>
+
+                       <f:Card>
+                        <f:header>
+                            <card:Header title="Gender Distribution" subtitle="Across all departments" />
+                        </f:header>
+                        <f:content>
+                            <viz:VizFrame id="genderChart" vizType="donut" height="300px" width="100%" uiConfig="{applicationSet:'fiori'}">
+                                <viz:dataset>
+                                    <vizData:FlattenedDataset data="{/genderData}">
+                                        <vizData:dimensions>
+                                            <vizData:DimensionDefinition name="Gender" value="{gender}" />
+                                        </vizData:dimensions>
+                                        <vizData:measures>
+                                            <vizData:MeasureDefinition name="Count" value="{count}" />
+                                        </vizData:measures>
+                                    </vizData:FlattenedDataset>
+                                </viz:dataset>
+                                <viz:feeds>
+                                    <vizFeeds:FeedItem uid="size"  type="Measure"   values="Count" />
+                                    <vizFeeds:FeedItem uid="color" type="Dimension" values="Gender" />
+                                </viz:feeds>
+                            </viz:VizFrame>
+                        </f:content>
+                    </f:Card>
+
+                </grid:CSSGrid>
+
+                <!-- ROW 4: TABLE -->
+               
+                        <Title text="Department Summary" titleStyle="H5" class="sapUiSmallMargin"/>
+                   
+                        <Table items="{/departmentSummary}" alternateRowColors="true" growing="false" class="sapUiSmallMargin">
+                            <columns>
+                                <Column><Text text="Department" /></Column>
+                                <Column hAlign="Center"><Text text="Headcount" /></Column>
+                                <Column hAlign="Center"><Text text="New Hires" /></Column>
+                                <Column hAlign="Center"><Text text="Attrition" /></Column>
+                                <Column hAlign="Center"><Text text="Avg Tenure" /></Column>
+                                <Column hAlign="Center"><Text text="Open Roles" /></Column>
+                                <Column hAlign="Center"><Text text="Satisfaction" /></Column>
+                            </columns>
+                            <items>
+                                <ColumnListItem>
+                                    <cells>
+                                        <Text text="{department}" />
+                                        <ObjectNumber number="{headcount}" emphasized="false" />
+                                        <ObjectStatus text="+{newHires}" state="Success" />
+                                        <ObjectStatus text="{attrition}%" state="{attritionState}" />
+                                        <Text text="{tenure} yrs" />
+                                        <ObjectNumber number="{openRoles}" state="{openRolesState}" />
+                                        <RatingIndicator value="{satisfaction}" maxValue="5" editable="false" />
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+                  
+
+            </VBox>
+        </content>
+    </Page>
+
+</mvc:View>

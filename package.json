@@ -7,10 +7,41 @@
     "bcrypt": "^6.0.0"
   },
   "devDependencies": {
-    "@cap-js/sqlite": "^2"
+    "@cap-js/sqlite": "^2",
+    "cds-plugin-ui5": "^0.13.0"
   },
   "scripts": {
-    "start": "cds-serve"
+    "start": "cds-serve",
+    "watch-employee-object-page": "cds watch --open com.hr.employeeobjectpage/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "watch-emp-list-app": "cds watch --open com.hr.emplistapp/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "watch-hr-ui-app": "cds watch --open com.hr.hruiapp/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "watch-employee-list-template": "cds watch --open com.hr.employeelisttemplate/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "watch-employee-leavereq-object": "cds watch --open com.hr.employeeleavereqobject/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "watch-employee-overview-template": "cds watch --open com.hr.employeeoverviewtemplate/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "watch-employees-overview-template": "cds watch --open com.hr.employeesoverviewtemplate/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "watch-employee-analytical-template": "cds watch --open com.hr.employeeanalyticaltemplate/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "watch-emp-analytics-temp": "cds watch --open com.hr.empanalyticstemp/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "watch-overview-template": "cds watch --open com.hr.overviewtemplate/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "watch-anaytics-demo": "cds watch --open com.hr.anayticsdemo/index.html?sap-ui-xx-viewCache=false --livereload false"
   },
-  "private": true
+  "private": true,
+  "workspaces": [
+    "app/*"
+  ],
+  "sapux": [
+    "app/employee-object-page",
+    "app/emp-list-app",
+    "app/employee-list-template",
+    "app/employee-leavereq-object",
+    "app/employee-overview-template",
+    "app/employees-overview-template",
+    "app/employee-overview-template",
+    "app/employee-analytical-template",
+    "app/employee-analytical-template",
+    "app/emp-analytics-temp",
+    "app/overview-template",
+    "app/overview-template",
+    "app/anaytics-demo",
+    "app/overview-template"
+  ]
 }

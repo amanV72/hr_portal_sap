@@ -1,0 +1,57 @@
+<mvc:View
+    controllerName="com.hr.hruiapp.controller.App"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:tnt="sap.tnt"
+    displayBlock="true">
+
+    <App id="app">
+        <pages>
+            <Page showHeader="true" enableScrolling="false" class="hrFixedPage">
+
+                <customHeader>
+                    <f:ShellBar
+                        id="hrShellBar"
+                        title="HR Portal"
+                        showNavButton="false"
+                        showMenuButton="true"
+                        showNotifications="true"
+                        notificationsPressed="onNotificationPress"
+                        menuButtonPressed="onMenuButtonPressed"
+                        class="hrRoundedHeader">
+                        <f:profile>
+                            <Avatar badgeIcon="sap-icon://person-placeholder" />
+                        </f:profile>
+                    </f:ShellBar>
+                </customHeader>
+
+                <content>
+                    <HBox height="100%" fitContainer="true" renderType="Bare">
+
+                        <!-- FIXED SIDE NAV — never changes -->
+                        <VBox class="sideNavBar sapUiSmallMarginTop" width="15rem" visible="{/isVisible}">
+                            <tnt:NavigationList
+                                
+                                width="100%"
+                                itemSelect=".onNavItemSelect" selectedKey="dash" >
+                                <tnt:NavigationListItem id="dash" text="Dashboard"      icon="sap-icon://home" press="onNavDashboard" />
+                                <tnt:NavigationListItem text="Analytics"      icon="sap-icon://business-objects-experience" press="onNavAnal" />
+                                <tnt:NavigationListItem text="Employees"      icon="sap-icon://group" press="onNavEmployees" />
+                                <tnt:NavigationListItem text="Attendance"     icon="sap-icon://time-entry-request" press="onNavAttendance" />
+                                <tnt:NavigationListItem text="Leave Requests" icon="sap-icon://request" />
+                                <tnt:NavigationListItem text="Documents"      icon="sap-icon://document" />
+                            </tnt:NavigationList>
+                        </VBox>
+
+                        <!-- ROUTER INJECTS CONTENT HERE ONLY -->
+                        <NavContainer id="contentNav" width="100%" height="100%" />
+
+                    </HBox>
+                </content>
+
+            </Page>
+        </pages>
+    </App>
+
+</mvc:View>

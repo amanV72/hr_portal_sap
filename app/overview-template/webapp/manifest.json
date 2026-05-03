@@ -1,0 +1,180 @@
+{
+  "_version": "1.84.0",
+  "sap.app": {
+    "id": "com.hr.overviewtemplate",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:ovp",
+      "version": "1.23.0",
+      "toolsId": "78df7d60-ad98-42ca-8926-acfea9fd449d"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/odata/v4/user/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "odataVersion": "4.01"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.147.2",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.ovp": {},
+        "sap.ui.rta": {},
+        "sap.ui.layout": {},
+        "sap.viz": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "com.hr.overviewtemplate.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+      "config": {},
+      "routes": [],
+      "targets": {}
+    }
+  },
+  "sap.ovp": {
+    "globalFilterModel": "",
+    "globalFilterEntityType": "UserAnalytics",
+    "cards": {
+
+      "card00_kpi": {
+        "model": "",
+        "template": "sap.ovp.cards.v4.analyticalChart",
+        "settings": {
+          "title": "Total Users",
+          "subTitle": "All Departments",
+          "entitySet": "UserAnalytics",
+          "chartAnnotationPath": "com.sap.vocabularies.UI.v1.Chart#ovpByDepartment",
+          "presentationAnnotationPath": "com.sap.vocabularies.UI.v1.PresentationVariant#ovpByDepartment",
+          "dataPointAnnotationPath": "com.sap.vocabularies.UI.v1.DataPoint#totalUsersDP",
+          "selectionAnnotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#allUsers"
+        }
+      },
+
+      "card01_byDepartment": {
+        "model": "",
+        "template": "sap.ovp.cards.v4.analyticalChart",
+        "settings": {
+          "title": "Users by Department",
+          "subTitle": "Headcount per Department",
+          "entitySet": "UserAnalytics",
+          "chartAnnotationPath": "com.sap.vocabularies.UI.v1.Chart#ovpByDepartment",
+          "presentationAnnotationPath": "com.sap.vocabularies.UI.v1.PresentationVariant#ovpByDepartment",
+          "selectionAnnotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#allUsers"
+        }
+      },
+
+      "card02_byGender": {
+        "model": "",
+        "template": "sap.ovp.cards.v4.analyticalChart",
+        "settings": {
+          "title": "Gender Distribution",
+          "subTitle": "Male vs Female",
+          "entitySet": "UserAnalytics",
+          "chartAnnotationPath": "com.sap.vocabularies.UI.v1.Chart#ovpByGender",
+          "presentationAnnotationPath": "com.sap.vocabularies.UI.v1.PresentationVariant#ovpByGender",
+          "selectionAnnotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#allUsers"
+        }
+      },
+
+      "card03_byRole": {
+        "model": "",
+        "template": "sap.ovp.cards.v4.analyticalChart",
+        "settings": {
+          "title": "Users by Role",
+          "subTitle": "Role Distribution",
+          "entitySet": "UserAnalytics",
+          "chartAnnotationPath": "com.sap.vocabularies.UI.v1.Chart#ovpByRole",
+          "presentationAnnotationPath": "com.sap.vocabularies.UI.v1.PresentationVariant#ovpByRole",
+          "selectionAnnotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#allUsers"
+        }
+      },
+
+      "card04_activeUsers": {
+        "model": "",
+        "template": "sap.ovp.cards.v4.analyticalChart",
+        "settings": {
+          "title": "Active Users",
+          "subTitle": "Currently Active",
+          "entitySet": "UserAnalytics",
+          "chartAnnotationPath": "com.sap.vocabularies.UI.v1.Chart#ovpByDepartment",
+          "presentationAnnotationPath": "com.sap.vocabularies.UI.v1.PresentationVariant#ovpByDepartment",
+          "selectionAnnotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#activeOnly"
+        }
+      },
+
+      "card05_table": {
+        "model": "",
+        "template": "sap.ovp.cards.v4.table",
+        "settings": {
+          "title": "User List",
+          "subTitle": "Recent Users",
+          "entitySet": "UserAnalytics",
+          "presentationAnnotationPath": "com.sap.vocabularies.UI.v1.PresentationVariant#ovpTable",
+          "selectionAnnotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#allUsers"
+        }
+      }
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "analytical"
+  }
+}

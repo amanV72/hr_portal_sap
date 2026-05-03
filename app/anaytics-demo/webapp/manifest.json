@@ -1,0 +1,171 @@
+{
+  "_version": "1.84.0",
+  "sap.app": {
+    "id": "com.hr.anayticsdemo",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:alp",
+      "version": "1.23.0",
+      "toolsId": "d57bed72-74c9-4d0c-ae57-034419440b2f"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/odata/v4/user/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "odataVersion": "4.01"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.147.2",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.fe.templates": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "com.hr.anayticsdemo.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+      "config": {},
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "UserAnalyticsList",
+          "target": "UserAnalyticsList"
+        },
+        {
+          "pattern": "UserAnalytics({key}):?query:",
+          "name": "UserAnalyticsObjectPage",
+          "target": "UserAnalyticsObjectPage"
+        }
+      ],
+      "targets": {
+        "UserAnalyticsList": {
+          "type": "Component",
+          "id": "UserAnalyticsList",
+          "name": "sap.fe.templates.AnalyticalListPage",
+          "options": {
+            "settings": {
+              "contextPath": "/UserAnalytics",
+              "variantManagement": "Page",
+              "navigation": {
+                "UserAnalytics": {
+                  "detail": {
+                    "route": "UserAnalyticsObjectPage"
+                  }
+                }
+              },
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "type": "AnalyticalTable",
+                    "selectionMode": "None"
+                  }
+                }
+              },
+              "views": {
+                "paths": [
+                  {
+                    "key": "byDepartment",
+                    "annotationPath": "com.sap.vocabularies.UI.v1.SelectionPresentationVariant#byDepartment",
+                    "secondary": [
+                      {
+                        "annotationPath": "com.sap.vocabularies.UI.v1.LineItem"
+                      }
+                    ],
+                    "primary": [
+                      {}
+                    ]
+                  },
+                  {
+                    "key": "byGender",
+                    "annotationPath": "com.sap.vocabularies.UI.v1.SelectionPresentationVariant#byGender"
+                  },
+                  {
+                    "key": "byRole",
+                    "annotationPath": "com.sap.vocabularies.UI.v1.SelectionPresentationVariant#byRole"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "UserAnalyticsObjectPage": {
+          "type": "Component",
+          "id": "UserAnalyticsObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/UserAnalytics"
+            }
+          }
+        }
+      }
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "analytical"
+  },
+  "sap.fe": {
+    "app": {
+      "enableLazyLoading": true
+    }
+  }
+}

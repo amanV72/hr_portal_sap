@@ -1,0 +1,41 @@
+/* Enter your custom styles here */
+
+
+.hrRoundedHeader {
+  background: var(--sapGroup_ContentBackground);
+  border-radius: 14px;      /* 👈 corner radius */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  margin-top: 6px;
+  margin-right: 6px;
+  margin-left: 6px;
+  margin-bottom: 6px;
+  
+}
+
+.customizedCard{
+    margin: 40px;
+}
+
+
+.hrWelcomeCard {
+  background: var(--sapGroup_ContentBackground);
+  border-top-left-radius: 16px;    
+  border-top-right-radius: 16px;                 /* rounded corners */
+  padding: 1.5rem;                     /* inner spacing */
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08); /* elevation */
+}
+
+.sideNavBar {
+  background: var(--sapGroup_ContentBackground);
+  border-top-left-radius: 16px;    
+  border-top-right-radius: 16px;                     /* rounded corners */
+  margin-left: 6px;
+  margin-top: 6px;
+  margin-right: 6px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08); /* elevation */
+}
+
+.hrBottomGrid {
+    align-items: start !important;
+}
+
