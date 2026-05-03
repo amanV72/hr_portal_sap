@@ -4,6 +4,7 @@
   "dependencies": {
     "@cap-js/hana": "^2",
     "@sap/cds": "^9",
+    "@sap/xssec": "^4.13.0",
     "bcrypt": "^6.0.0"
   },
   "devDependencies": {
@@ -43,5 +44,12 @@
     "app/overview-template",
     "app/anaytics-demo",
     "app/overview-template"
-  ]
+  ],
+  "cds": {
+    "requires": {
+      "[hybrid]": {
+        "auth": "xsuaa"
+      }
+    }
+  }
 }

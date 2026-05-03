@@ -1,6 +1,6 @@
 using { et } from '../db/schema';
 
-service UserService {
+service UserService  @(requires: 'authenticated-user'){
     @odata.draft.enabled
     @cds.redirection.target 
     entity Users as projection on et.Users{

@@ -1,0 +1,45 @@
+{
+    "welcomeFile": "/index.html",
+    "authenticationMethod": "route",
+    "logout": {
+        "logoutEndpoint": "/logout",
+        "logoutPage": "/index.html"
+    },
+    "routes": [
+        {
+            "source": "^/odata/(.*)$",
+            "target": "/odata/$1",
+            "destination": "srv-api",
+            "authenticationType": "xsuaa"
+        },
+        {
+            "source": "^/anaytics-demo/(.*)$",
+            "target": "$1",
+            "localDir": "../../app/anaytics-demo/webapp",
+            "authenticationType": "xsuaa"
+        },
+        {
+            "source": "^/overview-template/(.*)$",
+            "target": "$1",
+            "localDir": "../../app/overview-template/webapp",
+            "authenticationType": "xsuaa"
+        },
+        {
+            "source": "^/employee-list-template/(.*)$",
+            "target": "$1",
+            "localDir": "../../app/employee-list-template/webapp",
+            "authenticationType": "xsuaa"
+        },
+        {
+            "source": "^/index.html$",
+            "localDir": "webapp",
+            "authenticationType": "xsuaa"
+        },
+        {
+            "source": "^/(.*)$",
+            "target": "$1",
+            "destination": "srv-api",
+            "authenticationType": "xsuaa"
+        }
+    ]
+}

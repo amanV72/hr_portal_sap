@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>HR Portal</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 320px;
+        }
+        h1 { color: #0070f2; margin-bottom: 8px; }
+        p  { color: #666; margin-bottom: 30px; }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 12px;
+            background: #0070f2;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 15px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .btn:hover { background: #0050c0; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>HR Portal</h1>
+        <p>Welcome! Select an application to continue.</p>
+        <a class="btn" href="/anaytics-demo/">Analytics Dashboard</a>
+        <a class="btn" href="/overview-template/">Overview</a>
+        <a class="btn" href="/employee-list-template/">Employee Management</a>
+        <br/>
+        <a href="/logout" style="color:#999; font-size:13px;">Logout</a>
+    </div>
+</body>
+</html>

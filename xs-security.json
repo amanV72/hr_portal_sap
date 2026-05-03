@@ -1,0 +1,10 @@
+{
+    "xsappname": "hrportal_sap",
+    "tenant-mode": "dedicated",
+    "oauth2-configuration": {
+        "redirect-uris": [
+            "https://port5000-workspaces-ws-srydp.ap21.trial.applicationstudio.cloud.sap/login/callback",
+            "https://*.ap21.trial.applicationstudio.cloud.sap/**"
+        ]
+    }
+}

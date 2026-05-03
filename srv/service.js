@@ -5,6 +5,11 @@ const bcrypt = require('bcrypt');
 module.exports = cds.service.impl(async function () {
   const { Users, Roles, Departments, LeaveRequests }= cds.entities('et');
 
+  this.before('*', '*', (req) => {
+    const token = req.headers?.authorization?.split(' ')[1];
+    if (token) console.log('JWT:', token);
+});
+
   this.before(['CREATE', 'UPDATE'], 'Users', async (req) => {
     console.log(req.data);
 
@@ -79,6 +84,7 @@ if (
 
   //  Default value
   req.data.is_active = true;
+
 });
 
 this.before('CREATE', 'Roles', (req) => {
